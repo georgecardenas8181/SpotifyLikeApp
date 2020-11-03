@@ -1,6 +1,7 @@
 import java.io.File; 
 import java.io.IOException; 
-import java.util.Scanner;  
+import java.util.Scanner; 
+  
 import javax.sound.sampled.AudioInputStream; 
 import javax.sound.sampled.AudioSystem; 
 import javax.sound.sampled.Clip; 
@@ -9,18 +10,27 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.DataLine.Info;
+
 import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
 
+/*
+    To compile: javac SpotifyLikeApp.java
+    To run: java SpotifyLikeApp
+ */
+
+// declares a class for the app
 public class SpotifyLikeApp {
 
-    
+    // global variables for the app
     String status;
     Long position;
     static Clip audioClip;
 
+    // "main" makes this class a java app that can be executed
     public static void main(final String[] args) {
 
+        // create a scanner for user input
         Scanner input = new Scanner(System.in);
 
         String userInput = "";
@@ -28,19 +38,26 @@ public class SpotifyLikeApp {
 
             menu();
 
+            // get input
             userInput = input.nextLine();
 
+            // accept upper or lower case commands
             userInput.toLowerCase();
 
+            // do something
             handleMenu(userInput);
 
         }
 
+        // close the scanner
         input.close();
 
     }
 
 
+    /*
+     * displays the menu for the app
+     */
     public static void menu() {
 
         System.out.println("---- SpotifyLikeApp ----");
@@ -55,7 +72,11 @@ public class SpotifyLikeApp {
 
     }
 
-    
+
+
+    /*
+     * handles the user input for the app
+     */
     public static void handleMenu(String userInput) {
 
         switch(userInput) {
@@ -87,14 +108,20 @@ public class SpotifyLikeApp {
 
     }
 
+    /*
+     * plays an audio file
+     */
     public static void play() {
 
-        final File file = new File("./src/library/spotify_fma_track1_cropped.wav");
+        // open the audio file
+        final File file = new File("./Wav_Files/Zedd-Clarity-Brillz-Remix-78124492.wav");
 
         try {
         
+            // create clip 
             audioClip = AudioSystem.getClip();
 
+            // get input stream
             final AudioInputStream in = getAudioInputStream(file);
 
             audioClip.open(in);
