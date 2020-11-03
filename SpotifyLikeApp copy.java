@@ -1,6 +1,7 @@
-import java.io.File; 
-import java.io.IOException; 
-import java.util.Scanner; 
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Scanner;
   
 import javax.sound.sampled.AudioInputStream; 
 import javax.sound.sampled.AudioSystem; 
@@ -26,9 +27,10 @@ public class SpotifyLikeApp {
     String status;
     Long position;
     static Clip audioClip;
+static HashMap<String, Song> songs = new HashMap<>();
 
     // "main" makes this class a java app that can be executed
-    public static void main(final String[] args) {
+    
 
         // create a scanner for user input
         Scanner input = new Scanner(System.in);
@@ -62,17 +64,16 @@ public class SpotifyLikeApp {
 
         System.out.println("---- SpotifyLikeApp ----");
         System.out.println("[H]ome");
-        System.out.println("[S]earch by title");
+        System.out.println("[S}earch by title");
         System.out.println("[L]ibrary");
         System.out.println("[P]lay");
         System.out.println("[Q]uit");
+        System.out.println("");
 
         System.out.println("");
-        System.out.print("Enter q to Quit:");
+        System.out.print("Please press p to play the song:");
 
     }
-
-
 
     /*
      * handles the user input for the app
@@ -87,7 +88,7 @@ public class SpotifyLikeApp {
 
             case "s":
                 System.out.println("-->Search by title<--");
-                break;
+                break;  
 
             case "l":
                 System.out.println("-->Library<--");
@@ -108,13 +109,15 @@ public class SpotifyLikeApp {
 
     }
 
+    
     /*
      * plays an audio file
      */
     public static void play() {
 
         // open the audio file
-        final File file = new File("./Wav_Files/Zedd-Clarity-Brillz-Remix-78124492.wav");
+        final File file = new File("./Wav_Files/Calvin-Harris-Summer-Extended-143553285.wav");
+
 
         try {
         
