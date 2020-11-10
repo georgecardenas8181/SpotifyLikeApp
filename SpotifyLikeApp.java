@@ -2,7 +2,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
-  
+import java.util.Map;
 import javax.sound.sampled.AudioInputStream; 
 import javax.sound.sampled.AudioSystem; 
 import javax.sound.sampled.Clip; 
@@ -35,8 +35,8 @@ static HashMap<String, Song> songs = new HashMap<>();
     public static void main(String[] args) {
 
         Song s = new Song();
-            s.setArtist("Alesso");
-            s.setTitle("We Could Be Heroes feat. Tove Lo");
+            s.setArtist("Alesso feat. Tove Lo");
+            s.setTitle("We Could Be Heroes");
             s.setYear("2017");
             s.setGenre("Dance Music");
             s.setFilePath("./Wav_Files/Alesso-Heroes-we-could-be-feat-Tove-LO-164138555.wav");
@@ -51,7 +51,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             songs.put(s.getTitle(), s);
         
             s = new Song();
-            s.setArtist("Dimitri Vages, Martin Garrix, Like Mike Tremor");
+            s.setArtist("Dimitri Vegas feat. Martin Garrix and Like Mike Turner");
             s.setTitle("Beatport");
             s.setYear("2015");
             s.setGenre("Dance");
@@ -59,32 +59,32 @@ static HashMap<String, Song> songs = new HashMap<>();
             songs.put(s.getTitle(), s);
         
             s = new Song();
-            s.setArtist("Flosstradamus");
-            s.setTitle("Prison Riot feat. Lil Jon");
+            s.setArtist("Flosstradamus feat. Lil Jon");
+            s.setTitle("Prison Riot");
             s.setYear("2018");
             s.setGenre("Rap Hip-Hop");
             s.setFilePath("./Wav_Files/FLOSSTRADAMUS-GTA-LIL-JON-PRISON-RIOT-201105629.wav");
             songs.put(s.getTitle(), s);
 
             s = new Song();
-            s.setArtist("Hardwell");
-            s.setTitle("Dare You (Radio Edit) feat. Matthew Kona");
+            s.setArtist("Hardwell feat. Matthew Kona");
+            s.setTitle("Dare You (Radio Edit)");
             s.setYear("2015");
             s.setGenre("Dance");
             s.setFilePath("./Wav_Files/Hardwell-feat-Matthew-Kona-Dare-You-Radio-Edit-128147532.wav");
             songs.put(s.getTitle(), s);
         
             s = new Song();
-            s.setArtist("Jungle Bae");
-            s.setTitle("MX Prime feat. Bunji Garlin");
+            s.setArtist("Jungle Bae feat. Bunji Garlin");
+            s.setTitle("MX Prime");
             s.setYear("2018");
             s.setGenre("Dance Mix");
             s.setFilePath("./Wav_Files/Jungle-Bae-feat-Bunji-Garlin-MX-Prime-193270667.wav");
             songs.put(s.getTitle(), s);
         
             s = new Song();
-            s.setArtist("Martin Garrix");
-            s.setTitle("The Only Way Is Up feat. Tiesto");
+            s.setArtist("Martin Garrix feat Tiesto");
+            s.setTitle("The Only Way Is Up");
             s.setYear("2016");
             s.setGenre("EDM");
             s.setFilePath("./Wav_Files/Martin-Garrix-Tiesto-The-Only-way-Is-Up-OUT-NOW-200843678.wav");
@@ -96,7 +96,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2015");
             s.setGenre("EDM");
             s.setFilePath("./Wav_Files/SKRILLEX-ALVIN-RISK-TRY-IT-OUT-NEON-MIX-115102159.wav");
-            songs.put(s.getTitle(), s);
+            songs.put(s.getTitle(), s); 
 
         // create a scanner for user input
         Scanner input = new Scanner(System.in);
@@ -167,12 +167,18 @@ static HashMap<String, Song> songs = new HashMap<>();
             }
                 break;  
 
-            case "l":
+                case "l":
                 System.out.println("-->Library<--");
-                for(int i=10; i>1; i--){
-                    System.out.println("The value of i is: "+i);
-               }
-
+                for(Map.Entry<String, Song> s : songs.entrySet()) {
+                    System.out.println("Title: " + s.getValue().getTitle());
+                    System.out.println("Artist: " + s.getValue().getArtist());
+                    System.out.println("Gemre: "+ s.getValue().getGenre());
+                    System.out.println("Year: " + s.getValue().getYear());
+                    System.out.println("");
+                }
+                    
+                
+            
                 break;
                 
             case "p":
