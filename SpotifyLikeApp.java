@@ -33,12 +33,13 @@ static HashMap<String, Song> songs = new HashMap<>();
 
     // "main" makes this class a java app that can be executed
     public static void main(String[] args) {
+
         Song s = new Song();
             s.setArtist("Alesso");
             s.setTitle("We Could Be Heroes feat. Tove Lo");
             s.setYear("2017");
             s.setGenre("Dance Music");
-            s.setFilePath("./Wav_Files/Alesso-Heroes-we-could-be-Tove-lo-164138555.wav");
+            s.setFilePath("./Wav_Files/Alesso-Heroes-we-could-be-feat-Tove-LO-164138555.wav");
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -46,7 +47,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setTitle("Summer (Extended Edition)");
             s.setYear("2016");
             s.setGenre("Disco");
-            s.setFilePath("./Wav_Files/Calvin-Harris-Extended-143553285.wav");
+            s.setFilePath("./Wav_Files/Calvin-Harris-Summer-Extended-143553285.wav");
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -64,7 +65,8 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setGenre("Rap Hip-Hop");
             s.setFilePath("./Wav_Files/FLOSSTRADAMUS-GTA-LIL-JON-PRISON-RIOT-201105629.wav");
             songs.put(s.getTitle(), s);
-        
+
+            s = new Song();
             s.setArtist("Hardwell");
             s.setTitle("Dare You (Radio Edit) feat. Matthew Kona");
             s.setYear("2015");
@@ -93,7 +95,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setTitle("Try It Out (Neon Mix)");
             s.setYear("2015");
             s.setGenre("EDM");
-            s.setFilePath("./WavFiles/SKRILLEX-ALVIN-RISK-TRY-IT-OUT-NEON-MIX-115102159.wav");
+            s.setFilePath("./Wav_Files/SKRILLEX-ALVIN-RISK-TRY-IT-OUT-NEON-MIX-115102159.wav");
             songs.put(s.getTitle(), s);
 
         // create a scanner for user input
@@ -118,15 +120,6 @@ static HashMap<String, Song> songs = new HashMap<>();
         // close the scanner
         input.close();
     }
-
-        
-	     
-	    
-            
-        
-    
-
-
 
     /*
      * displays the menu for the app
@@ -155,23 +148,36 @@ static HashMap<String, Song> songs = new HashMap<>();
 
             case "h":
                 System.out.println("-->Home<--");
-                play(songs.get("Summer (Extended Edition)"));
                 break;
 
             case "s":
                 System.out.println("-->Search by title<--");
                 Scanner input = new Scanner(System.in);
-                System.out.println("Please enter the song:");
+                System.out.println("Please enter the title:");
                 String title = input.nextLine();
+                Song song = songs.get(title);
+                
+                if (song !=null)
+                 {
+                    System.out.println("Your current selection is now playing");
+                    play(song.getFilePath());
+
+                } else {
+                    System.out.println("Sorry, please search again.");
+            }
                 break;  
 
             case "l":
                 System.out.println("-->Library<--");
+                for(int i=10; i>1; i--){
+                    System.out.println("The value of i is: "+i);
+               }
+
                 break;
                 
             case "p":
                 System.out.println("-->Play<--");
-                play(songs.get("Beatport"));
+                play(songs.get("Beatport").getFilePath());
                 break;
 
             case "q":
@@ -214,4 +220,5 @@ static HashMap<String, Song> songs = new HashMap<>();
 
 
 }
+
 
