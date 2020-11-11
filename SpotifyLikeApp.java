@@ -98,6 +98,26 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setFilePath("./Wav_Files/SKRILLEX-ALVIN-RISK-TRY-IT-OUT-NEON-MIX-115102159.wav");
             songs.put(s.getTitle(), s); 
 
+            s = new Song();
+            s.setArtist("Yello Claw feat. Cesqeaux");
+            s.setTitle("IBETCHU (Legends EP)");
+            s.setYear("2018");
+            s.setGenre("EDM");
+            s.setFilePath("./Wav_Files/Yellow-Claw-Cesqeaux-IBETCHU-Legends-EP-80337564.wav");
+            songs.put(s.getTitle(), s);
+
+            s = new Song();
+            s.setArtist("Zedd");
+            s.setTitle("Clarity (Brillz Remix)");
+            s.setYear("2015");
+            s.setGenre("EDM");
+            s.setFilePath("./Wav_Files/Zedd-Clarity-Brillz-Remix-78124492.wav");
+            songs.put(s.getTitle(), s);
+
+
+
+
+
         // create a scanner for user input
         Scanner input = new Scanner(System.in);
 
