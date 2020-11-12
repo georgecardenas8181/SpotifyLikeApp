@@ -67,13 +67,13 @@ static HashMap<String, Song> songs = new HashMap<>();
             songs.put(s.getTitle(), s);
 
             s = new Song();
-            s.setArtist("Hardwell feat. Matthew Kona");
+            s.setArtist("Hardwell feat. Matthew Koma");
             s.setTitle("Dare You (Radio Edit)");
             s.setYear("2015");
             s.setGenre("Dance");
-            s.setFilePath("./Wav_Files/Hardwell-feat-Matthew-Kona-Dare-You-Radio-Edit-128147532.wav");
+            s.setFilePath("./Wav_Files/Hardwell-feat-Matthew-Koma-Dare-You-Radio-Edit-128147532.wav");
             songs.put(s.getTitle(), s);
-        
+
             s = new Song();
             s.setArtist("Jungle Bae feat. Bunji Garlin");
             s.setTitle("MX Prime");
@@ -99,7 +99,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             songs.put(s.getTitle(), s); 
 
             s = new Song();
-            s.setArtist("Yello Claw feat. Cesqeaux");
+            s.setArtist("Yellow Claw feat. Cesqeaux");
             s.setTitle("IBETCHU (Legends EP)");
             s.setYear("2018");
             s.setGenre("EDM");
@@ -155,7 +155,7 @@ static HashMap<String, Song> songs = new HashMap<>();
         System.out.println("");
 
         System.out.println("");
-        System.out.print("Please press p to play the song:");
+        System.out.print("Please press the first letter of the menu screen.");
 
     }
 
@@ -195,6 +195,7 @@ static HashMap<String, Song> songs = new HashMap<>();
                     System.out.println("Gemre: "+ s.getValue().getGenre());
                     System.out.println("Year: " + s.getValue().getYear());
                     System.out.println("");
+                
                 }
                     
                 
@@ -203,7 +204,6 @@ static HashMap<String, Song> songs = new HashMap<>();
                 
             case "p":
                 System.out.println("-->Play<--");
-                play(songs.get("Beatport").getFilePath());
                 break;
 
             case "q":
