@@ -11,6 +11,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.DataLine.Info;
+import javax.xml.namespace.QName;
 
 import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
@@ -177,7 +178,7 @@ static HashMap<String, Song> songs = new HashMap<>();
                 String title = input.nextLine();
                 Song song = songs.get(title);
                 
-                if (song !=null)
+                if (song != null)
                  {
                     System.out.println("Your current selection is now playing");
                     play(song.getFilePath());
@@ -195,6 +196,10 @@ static HashMap<String, Song> songs = new HashMap<>();
                     System.out.println("Gemre: "+ s.getValue().getGenre());
                     System.out.println("Year: " + s.getValue().getYear());
                     System.out.println("");
+                    
+
+                
+
                 
                 }
                     
@@ -204,6 +209,8 @@ static HashMap<String, Song> songs = new HashMap<>();
                 
             case "p":
                 System.out.println("-->Play<--");
+                play(songs.get("Beatport").getFilePath());
+
                 break;
 
             case "q":
