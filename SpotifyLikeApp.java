@@ -41,6 +41,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2017");
             s.setGenre("Dance Music");
             s.setFilePath("./Wav_Files/Alesso-Heroes-we-could-be-feat-Tove-LO-164138555.wav");
+            s.setIsFavorite(true);
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -49,6 +50,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2016");
             s.setGenre("Disco");
             s.setFilePath("./Wav_Files/Calvin-Harris-Summer-Extended-143553285.wav");
+            s.setIsFavorite(true);
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -57,6 +59,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2015");
             s.setGenre("Dance");
             s.setFilePath("./Wav_Files/Dimitri-Vegas-Martin-Garrix-like-Mike-Tremor-OUT-NOW-BEATPORT-1-139678132.wav");
+            s.setIsFavorite(true);
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -65,7 +68,9 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2018");
             s.setGenre("Rap Hip-Hop");
             s.setFilePath("./Wav_Files/FLOSSTRADAMUS-GTA-LIL-JON-PRISON-RIOT-201105629.wav");
+            s.setIsFavorite(true);
             songs.put(s.getTitle(), s);
+        
 
             s = new Song();
             s.setArtist("Hardwell feat. Matthew Koma");
@@ -73,6 +78,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2015");
             s.setGenre("Dance");
             s.setFilePath("./Wav_Files/Hardwell-feat-Matthew-Koma-Dare-You-Radio-Edit-128147532.wav");
+            s.setIsFavorite(false);
             songs.put(s.getTitle(), s);
 
             s = new Song();
@@ -81,6 +87,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2018");
             s.setGenre("Dance Mix");
             s.setFilePath("./Wav_Files/Jungle-Bae-feat-Bunji-Garlin-MX-Prime-193270667.wav");
+            s.setIsFavorite(false);
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -89,6 +96,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2016");
             s.setGenre("EDM");
             s.setFilePath("./Wav_Files/Martin-Garrix-Tiesto-The-Only-way-Is-Up-OUT-NOW-200843678.wav");
+            s.setIsFavorite(true);
             songs.put(s.getTitle(), s);
         
             s = new Song();
@@ -97,6 +105,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2015");
             s.setGenre("EDM");
             s.setFilePath("./Wav_Files/SKRILLEX-ALVIN-RISK-TRY-IT-OUT-NEON-MIX-115102159.wav");
+            s.setIsFavorite(false);
             songs.put(s.getTitle(), s); 
 
             s = new Song();
@@ -105,6 +114,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2018");
             s.setGenre("EDM");
             s.setFilePath("./Wav_Files/Yellow-Claw-Cesqeaux-IBETCHU-Legends-EP-80337564.wav");
+            s.setIsFavorite(false);
             songs.put(s.getTitle(), s);
 
             s = new Song();
@@ -113,6 +123,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             s.setYear("2015");
             s.setGenre("EDM");
             s.setFilePath("./Wav_Files/Zedd-Clarity-Brillz-Remix-78124492.wav");
+            s.setIsFavorite(true);
             songs.put(s.getTitle(), s);
 
 
@@ -151,7 +162,8 @@ static HashMap<String, Song> songs = new HashMap<>();
         System.out.println("[H]ome");
         System.out.println("[S}earch by title");
         System.out.println("[L]ibrary");
-        System.out.println("[P]lay");
+        System.out.println("[P}lay");
+        System.out.println("[F]avorites");
         System.out.println("[Q]uit");
         System.out.println("");
 
@@ -196,22 +208,30 @@ static HashMap<String, Song> songs = new HashMap<>();
                     System.out.println("Gemre: "+ s.getValue().getGenre());
                     System.out.println("Year: " + s.getValue().getYear());
                     System.out.println("");
-                    
-
-                
-
-                
                 }
-                    
-                
             
                 break;
                 
-            case "p":
-                System.out.println("-->Play<--");
-                play(songs.get("Beatport").getFilePath());
+            case "f":
+                System.out.println("-->Favorites<--");
+                for(Map.Entry<String, Song> s : songs.entrySet()) {
+                    if (s.getValue().getIsFavorite()){
+                        System.out.println("Title: " + s.getValue().getTitle());
+                        System.out.println("Artist: " + s.getValue().getArtist());
+                        System.out.println("Gemre: "+ s.getValue().getGenre());
+                        System.out.println("Year: " + s.getValue().getYear());
+                        System.out.println("");
+                    }
+                    
+                }
 
                 break;
+            
+            case "p":
+                play(songs.get("Beatprt").getFilePath());
+
+                break;
+
 
             case "q":
                 System.out.println("-->Quit<--");

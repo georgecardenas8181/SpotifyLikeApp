@@ -4,6 +4,7 @@ public class Song {
     private String genre;
     private String year;
     private String filePath;
+    private Boolean isFavorite = false;
 
     public String getTitle() {
         return title;
@@ -35,6 +36,13 @@ public class Song {
     public void setFilePath(String value){
         filePath = value;
     }
+    public Boolean getIsFavorite() {
+        return isFavorite;
+    }
+    public void setIsFavorite(Boolean value) {
+        isFavorite = value;
+    }
+    
 }
     
 
