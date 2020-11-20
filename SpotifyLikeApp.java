@@ -162,7 +162,6 @@ static HashMap<String, Song> songs = new HashMap<>();
         System.out.println("[H]ome");
         System.out.println("[S}earch by title");
         System.out.println("[L]ibrary");
-        System.out.println("[P}lay");
         System.out.println("[F]avorites");
         System.out.println("[Q]uit");
         System.out.println("");
@@ -203,11 +202,14 @@ static HashMap<String, Song> songs = new HashMap<>();
                 case "l":
                 System.out.println("-->Library<--");
                 for(Map.Entry<String, Song> s : songs.entrySet()) {
+                    System.out.println("");
                     System.out.println("Title: " + s.getValue().getTitle());
                     System.out.println("Artist: " + s.getValue().getArtist());
                     System.out.println("Gemre: "+ s.getValue().getGenre());
                     System.out.println("Year: " + s.getValue().getYear());
+                    System.out.println("File Path: " + s.getValue().getFilePath());
                     System.out.println("");
+
                 }
             
                 break;
@@ -215,26 +217,35 @@ static HashMap<String, Song> songs = new HashMap<>();
             case "f":
                 System.out.println("-->Favorites<--");
                 for(Map.Entry<String, Song> s : songs.entrySet()) {
-                    if (s.getValue().getIsFavorite()){
+                    /*
+                    if (s.getValue().getIsFavorite()) {
+                        System.out.println("");
                         System.out.println("Title: " + s.getValue().getTitle());
                         System.out.println("Artist: " + s.getValue().getArtist());
                         System.out.println("Gemre: "+ s.getValue().getGenre());
                         System.out.println("Year: " + s.getValue().getYear());
+                        System.out.println("File Path: " + s.getValue().getFilePath());
                         System.out.println("");
                     }
-                    
-                }
+                    */
+                }   
+                
 
+                favoriteMenu();
+                System.out.println("Please select a number");
+                input = new Scanner(System.in);
+                userInput = input.nextLine();
+                handleFavoriteMenu(userInput);
                 break;
             
             case "p":
-                play(songs.get("Beatprt").getFilePath());
-
+                System.out.println("-->Play<--");
                 break;
 
 
             case "q":
                 System.out.println("-->Quit<--");
+                
                 break;
 
             default:
@@ -242,8 +253,51 @@ static HashMap<String, Song> songs = new HashMap<>();
         }
 
     }
-
     
+    public static void favoriteMenu() {
+        System.out.println("");
+        System.out.println("1. Pause");
+        System.out.println("2. Stop");
+        System.out.println("3. Rewind 5 Seconds");
+        System.out.println("4. Forward 5 Seconds");
+        System.out.println("5. Favorites");
+        System.out.println("");
+    }
+    public static void handleFavoriteMenu(String userInput) {
+
+        switch(userInput) {
+
+            case "1":
+            System.out.println("-->Puase<--");
+            break;
+
+            case "2":
+            System.out.println("-->Stop<--");
+            break;
+
+            case "3":
+            System.out.println("-->Rewind<--");
+            break;
+
+            case "4":
+            System.out.println("-->Forward<--");
+            break;
+
+            case "5":
+            System.out.println("-->Favorite<--");
+            break;
+
+            default:
+            break;
+
+
+
+        
+
+
+        }
+    }
+
     /*
      * plays an audio file
      */
@@ -270,8 +324,11 @@ static HashMap<String, Song> songs = new HashMap<>();
         }
 
     }
+    
 
 
 }
+
+
 
 
