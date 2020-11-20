@@ -258,8 +258,8 @@ static HashMap<String, Song> songs = new HashMap<>();
         System.out.println("");
         System.out.println("1. Pause");
         System.out.println("2. Stop");
-        System.out.println("3. Rewind 5 Seconds");
-        System.out.println("4. Forward 5 Seconds");
+        System.out.println("3. Rewind For 5 Seconds");
+        System.out.println("4. Forward For 5 Seconds");
         System.out.println("5. Favorites");
         System.out.println("");
     }
@@ -289,12 +289,6 @@ static HashMap<String, Song> songs = new HashMap<>();
 
             default:
             break;
-
-
-
-        
-
-
         }
     }
 
