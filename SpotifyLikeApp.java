@@ -191,7 +191,7 @@ static HashMap<String, Song> songs = new HashMap<>();
                 
                 if (song != null)
                  {
-                    System.out.println("Your current selection is now playing");
+                    System.out.println("Your Tile Is Now Playing");
                     play(song.getFilePath());
 
                 } else {
@@ -216,32 +216,13 @@ static HashMap<String, Song> songs = new HashMap<>();
                 
             case "f":
                 System.out.println("-->Favorites<--");
-                for(Map.Entry<String, Song> s : songs.entrySet()) {
-                    /*
-                    if (s.getValue().getIsFavorite()) {
-                        System.out.println("");
-                        System.out.println("Title: " + s.getValue().getTitle());
-                        System.out.println("Artist: " + s.getValue().getArtist());
-                        System.out.println("Gemre: "+ s.getValue().getGenre());
-                        System.out.println("Year: " + s.getValue().getYear());
-                        System.out.println("File Path: " + s.getValue().getFilePath());
-                        System.out.println("");
-                    }
-                    */
-                }   
                 
-
                 favoriteMenu();
                 System.out.println("Please select a number");
                 input = new Scanner(System.in);
                 userInput = input.nextLine();
                 handleFavoriteMenu(userInput);
                 break;
-            
-            case "p":
-                System.out.println("-->Play<--");
-                break;
-
 
             case "q":
                 System.out.println("-->Quit<--");
@@ -268,15 +249,18 @@ static HashMap<String, Song> songs = new HashMap<>();
         switch(userInput) {
 
             case "1":
-            System.out.println("-->Puase<--");
+            System.out.println("-->Pause<--"); 
+            
             break;
 
             case "2":
             System.out.println("-->Stop<--");
+            audioClip.stop();
             break;
 
             case "3":
             System.out.println("-->Rewind<--");
+            
             break;
 
             case "4":
@@ -284,7 +268,20 @@ static HashMap<String, Song> songs = new HashMap<>();
             break;
 
             case "5":
-            System.out.println("-->Favorite<--");
+            System.out.println("-->My Favorite Songs<--");
+            for(Map.Entry<String, Song> s : songs.entrySet()) {
+                    
+                if (s.getValue().getIsFavorite()) {
+                    System.out.println("");
+                    System.out.println("Title: " + s.getValue().getTitle());
+                    System.out.println("Artist: " + s.getValue().getArtist());
+                    System.out.println("Gemre: "+ s.getValue().getGenre());
+                    System.out.println("Year: " + s.getValue().getYear());
+                    System.out.println("File Path: " + s.getValue().getFilePath());
+                    System.out.println("");
+                }
+            
+            }   
             break;
 
             default:
@@ -312,6 +309,8 @@ static HashMap<String, Song> songs = new HashMap<>();
             audioClip.open(in);
             audioClip.setMicrosecondPosition(0);
             audioClip.loop(Clip.LOOP_CONTINUOUSLY);
+            
+            
 
         } catch(Exception e) {
             e.printStackTrace(); 
@@ -319,8 +318,6 @@ static HashMap<String, Song> songs = new HashMap<>();
 
     }
     
-
-
 }
 
 
