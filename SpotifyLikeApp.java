@@ -250,7 +250,7 @@ static HashMap<String, Song> songs = new HashMap<>();
 
             case "1":
             System.out.println("-->Pause<--"); 
-            
+            audioClip.stop();
             break;
 
             case "2":
@@ -260,11 +260,16 @@ static HashMap<String, Song> songs = new HashMap<>();
 
             case "3":
             System.out.println("-->Rewind<--");
-            
+            audioClip.stop();
+            audioClip.setMicrosecondPosition(audioClip.getMicrosecondPosition() - 5000);
+            audioClip.start();
             break;
 
             case "4":
             System.out.println("-->Forward<--");
+            audioClip.stop();
+            audioClip.setMicrosecondPosition(audioClip.getMicrosecondPosition() + 5000);
+            audioClip.start();
             break;
 
             case "5":
@@ -309,6 +314,7 @@ static HashMap<String, Song> songs = new HashMap<>();
             audioClip.open(in);
             audioClip.setMicrosecondPosition(0);
             audioClip.loop(Clip.LOOP_CONTINUOUSLY);
+        
             
             
 
