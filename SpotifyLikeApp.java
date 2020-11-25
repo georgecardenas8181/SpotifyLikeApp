@@ -250,7 +250,11 @@ static HashMap<String, Song> songs = new HashMap<>();
 
             case "1":
             System.out.println("-->Pause<--"); 
-            audioClip.stop();
+            if  (audioClip.isRunning()) {
+                audioClip.stop();
+            } else {
+                audioClip.start();
+            }
             break;
 
             case "2":
