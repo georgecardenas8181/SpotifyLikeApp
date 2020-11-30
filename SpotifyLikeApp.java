@@ -216,7 +216,6 @@ static HashMap<String, Song> songs = new HashMap<>();
                 
             case "f":
                 System.out.println("-->Favorites<--");
-                
                 favoriteMenu();
                 System.out.println("Please select a number");
                 input = new Scanner(System.in);
@@ -249,10 +248,12 @@ static HashMap<String, Song> songs = new HashMap<>();
         switch(userInput) {
 
             case "1":
-            System.out.println("-->Pause<--"); 
+             
             if  (audioClip.isRunning()) {
+                System.out.println("-->Pause<--");
                 audioClip.stop();
             } else {
+                System.out.println("-->Resume<--");
                 audioClip.start();
             }
             break;
